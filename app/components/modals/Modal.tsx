@@ -29,7 +29,29 @@ const Modal: React.FC<ModalProps> = ({
   useEffect(() => {
     setShowModal(isOpen);
   }, [isOpen]);
-  const handleClose = useCallback(() => {}, []);
+  const handleClose = useCallback(() => {
+    if (disabled) {
+      return;
+    }
+    setShowModal(false);
+    setTimeout(() => {
+      onClose();
+    }, 300);
+  }, [disabled, onClose]);
+  const handleSubmit = useCallback(() => {
+    if (disabled) {
+      return;
+    }
+    onSubmit();
+  }, [disabled, onSubmit]);
+  const handleSecondaryAction = useCallback(() => {
+    if (disabled || !secondaryAction) {
+      return;
+    }
+  }, [disabled, secondaryAction]);
+  if (!isOpen) {
+    return null;
+  }
   return <div className=""></div>;
 };
 export default Modal;
