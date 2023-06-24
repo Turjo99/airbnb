@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
+import Button from "../Button";
 
 // import Button from "../Button";
 
@@ -137,7 +138,29 @@ const Modal: React.FC<ModalProps> = ({
                 relative
                 border-b-[1px]
                 "
-              ></div>
+              >
+                <button
+                  onClick={handleClose}
+                  className="p-1 border-0 hover:opacity-70 absolute left-9"
+                >
+                  <IoMdClose size={18}></IoMdClose>
+                </button>
+                <div className=" text-lg font-semibold">{title}</div>
+              </div>
+              <div className=" relative p-6 flex-auto">
+                {/* body */}
+                {body}
+              </div>
+              {/* footer */}
+              <div className=" flex flex-col gap-2 p-6">
+                <div className=" flex flex-row items-center gap-4 w-full">
+                  <Button
+                    disabled={disabled}
+                    label={actionLabel}
+                    onClick={handleSubmit}
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
