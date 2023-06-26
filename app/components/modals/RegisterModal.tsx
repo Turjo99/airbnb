@@ -5,6 +5,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 import Modal from "./Modal";
+import Heading from "../Heading";
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
@@ -34,6 +35,11 @@ const RegisterModal = () => {
         setIsLoading(false);
       });
   };
+  const bodyContent = (
+    <div className="flex flex-col gap-4">
+      <Heading title="Welcome to Airbnb" subtitle="Create an account!" />
+    </div>
+  );
   return (
     <div className="">
       <Modal
@@ -43,6 +49,7 @@ const RegisterModal = () => {
         actionLabel="Continue"
         onClose={registerModal.onClose}
         onSubmit={handleSubmit(onSubmit)}
+        body={bodyContent}
       />
     </div>
   );
