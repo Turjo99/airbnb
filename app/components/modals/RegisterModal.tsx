@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 import Modal from "./Modal";
 import Heading from "../Heading";
+import Input from "../Input/Input";
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
@@ -38,6 +39,7 @@ const RegisterModal = () => {
   const bodyContent = (
     <div className="flex flex-col gap-4">
       <Heading title="Welcome to Airbnb" subtitle="Create an account!" />
+      <Input></Input>
     </div>
   );
   return (
