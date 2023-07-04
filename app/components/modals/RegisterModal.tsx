@@ -10,6 +10,7 @@ import Input from "../Input/Input";
 import { toast } from "react-hot-toast";
 import Button from "../Button";
 import { FcGoogle } from "react-icons/fc";
+import { AiFillGithub } from "react-icons/ai";
 
 const RegisterModal = () => {
   const registerModal = useRegisterModal();
@@ -79,6 +80,23 @@ const RegisterModal = () => {
         icon={FcGoogle}
         onClick={() => {}}
       />
+      <Button
+        outline
+        label="Continue with Github"
+        icon={AiFillGithub}
+        onClick={() => {}}
+      />
+      <div className=" text-neutral-500 text-center mt-4 font-light">
+        <div className="flex justify-center flex-row items-center gap-2">
+          <div className="">Already have an account?</div>
+          <div
+            onClick={registerModal.onClose}
+            className=" text-neutral-800 cursor-pointer hover:underline transition-colors"
+          >
+            Login
+          </div>
+        </div>
+      </div>
     </div>
   );
   return (
